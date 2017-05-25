@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>IGCS</title>
+	<link href='http://fonts.googleapis.com/earlyaccess/notosanskr.css' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/static/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/libs/vue/vue2-animate.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/spacing.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/components.css">
+	<script type="text/javascript" src="/static/libs/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/libs/vue/vue.js"></script>
+</head>
+<body>
+	<!-- app -->
+	<div id="app">
+		<header id="header">
+			<div class="header_cont">
+				
+			</div><!-- header-cont -->
+		</header><!-- header -->
+
+		<section id="contents" class="service resource_manager">
+			<div class="cont">
+				<button type="button" @click="createPopup('ViewPopup')">뷰 팝업</button>
+				<button type="button" @click="createPopup('ImageUploadPopup')">이미지 업로드 팝업</button>
+				<button type="button" @click="createPopup('FileUploadPopup')">파일 업로드 팝업</button>
+				<button type="button" @click="deleteConfirm()">삭제 확인</button>
+				<button type="button" @click="siteSelectMenu()">{{siteSelectMenuList[siteSelectId].text}}</button>
+				
+				<div class="select_container" style="position: relative; height: 300px; overflow: hidden;">
+					<!-- selectmenu component -->
+					<transition 
+						name="slide"
+						enter-active-class="slideInDown"
+						leave-active-class="slideOutUp"
+					>
+						<select-menu
+							v-if="siteSelectMenuShow"
+							:list="siteSelectMenuList"
+							:select-id="siteSelectId"
+							v-on:selected="onSelected"
+						></select-menu>
+					</transition>
+				</div>
+								
+			</div><!-- cont -->
+		</section><!-- contents -->
+		
+		<footer id="footer">
+			<div class="footer_cont">
+				
+			</div><!-- footer-cont -->
+		</footer><!-- footer -->
+
+		<!-- popup component -->
+		<transition-group name="fade">
+			<popup 
+				:id="popup.id" 
+				:child="popup.child" 
+				v-on:popup-close="onPopupClose" 
+				v-for="popup in popupList"
+				v-bind:key="popup"
+			></popup>
+		</transition-group>
+		
+		<!-- confirm component -->
+		<transition name="fade" tag="div">
+			<confirm 
+				v-if="confirmShow"
+				:title="confirmText.title" 
+				:question="confirmText.question" 
+				v-on:confirm-complete="onConfirmComplete"
+			></confirm>
+		</transition>
+
+	</div><!-- app -->
+	<script data-main="/static/js/main" src="/static/libs/require/require.js"></script>
+</body>
+</html>
+
+
+
+
+
+

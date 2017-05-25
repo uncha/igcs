@@ -1,0 +1,8 @@
+<div class="SelectMenu">
+	<div class="title_area"></div>
+	<div class="select_list_area">
+		<ul>
+			<li v-for="(value, key) in list"><a @click.prevent="listClick(value.data, key)" :data="value.data" :class="{checked:key==selectId}" href="#">{{value.text}}<i class="fa fa-check"></i></a></li>
+		</ul>
+	</div><!-- select_list_area -->
+</div><!-- SelectMenu -->

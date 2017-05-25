@@ -1,0 +1,46 @@
+<div class="VideoPlayer">
+	<div class="video_area" @mouseover="videoAreaMouseover" @mouseout="videoAreaMouseout">
+		<video class="video" :autoplay="playState" @loadeddata="onLoadedData($event)" @timeupdate="onTimeUpdate($event)">
+			<source
+				v-for="source in sources"
+				:src="source.src"
+				:type="source.type"
+			>
+			</source>
+		</video>
+		<div class="play_control">
+			<transition name="fade">
+				<button
+					v-if="centerButtonShow"
+					@click="togglePlay" 
+					type="button" 
+					:class="centerPlayControlClass" 
+					class="fa"
+				></button>
+			</transition>
+		</div><!-- play_control -->
+	</div><!-- video_area -->
+	<div class="controller_area">
+		<div class="control_group">
+			<div class="play_control">
+				<button 
+					type="button" 
+					class="fa" 
+					:class='playControlClass' 
+					@click="togglePlay"
+				></button>
+			</div><!-- play_control -->
+			<div class="duration_bar">
+				<div class="total_range">
+					<p :style="{width:currentRange + '%'}" class="current_range"></p>
+				</div>
+			</div><!-- duration_bar -->
+			<div class="duration_time">
+				<span class="current_time">{{currentTime | time}}</span> / <span class="total_time">{{totalTime | time}}</span>
+			</div><!-- duration_time -->
+			<div class="volum_control">
+				
+			</div><!-- volum_control -->
+		</div><!-- control_group -->
+	</div><!-- controller_area -->
+</div><!-- VideoPlayer -->

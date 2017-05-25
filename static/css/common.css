@@ -1,0 +1,24 @@
+@charset utf-8;
+
+body{
+	background: #CCC; 
+	font-family: 'Noto Sans KR';
+	font-weight: 300;
+	color:#828282; 
+	font-size:14px;
+}
+
+a{color:#828282;}
+a:link{text-decoration: none;}
+a:hover{text-decoration: none;}
+a:visited{text-decoration: none;}
+a:action{text-decoration: none;}
+
+.bg_red{background: #f05a54 !important}
+.bg_violet{background: #726dab !important}
+.bg_grey{background: #888 !important}
+.blind{overflow:hidden;position:absolute;top:0;left:0;width:1px;height:1px;font-size:0;line-height:0}
+
+button{outline: none; cursor: pointer;}
+input, textarea{outline: none;}
+.btn{display:inline-block; border:0; border-radius: 3px; background: #BBB; padding:13px 28px; color: #FFF}

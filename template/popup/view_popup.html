@@ -1,0 +1,72 @@
+<div class="ViewPopup">
+	<div class="title_area">
+		<p class="title">{{title}}</p>
+	</div><!-- title_area -->
+	<div class="cont_area">
+
+		<!-- <img
+			v-if="contentType=='image'"
+			class="img" 
+			src="/static/images/service/img01.png" 
+			alt="IMG_2046" 
+		/> -->
+		
+		<video-player></video-player>
+
+		<a class="btn_prev fa fa-angle-left" href="#" title="이전"></a>
+		<a class="btn_next fa fa-angle-right" href="#" title="다음"></a>
+	</div><!-- cont_area -->
+	<div class="detail_area">
+		<table summary="이미지 설명" class="tbl gbl_width-100p tbl_detail">
+			<colgroup>
+				<col style="width:50%" />
+				<col style="width:50%" />
+			</colgroup>
+			<tbody>
+				<tr>
+					<td class="detail_text">설명 내용을 출력하는 공간입니다.</td>
+					<td class="tags">
+						<ul>
+							<li>태그명 1</li>
+							<li>태그명 2</li>
+							<li>태그명 3</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td class="file_info">
+						<dl>
+							<dt>확장자 : </dt>
+							<dd>JPG</dd>
+						</dl>
+						<dl>
+							<dt>파일 사이즈 : </dt>
+							<dd>846kb</dd>
+						</dl>
+						<dl>
+							<dt>규격 : </dt>
+							<dd>1024x768</dd>
+						</dl>
+					</td>
+					<td class="update">
+						<dl>
+							<dt>Last updated</dt>
+							<dd>2017.5.11</dd>
+							<dd>12:32:43</dd>
+						</dl>
+					</td>
+				</tr>
+			</tbody>
+		</table><!-- tbl_detail -->
+	</div><!-- detail_area -->
+	<div class="button_area">
+		<div class="left">
+			<a href="#" class="btn bg_violet btn_modify">Modify</a>
+			<a href="#" class="btn bg_red btn_delete">Delete</a>
+		</div><!-- left -->
+		<div class="right">
+			<a href="#" class="btn bg_violet btn_download"><img class="mr10" src="/static/images/service/ico_download.gif" alt="download icon" />Download</a>
+			<a href="#" class="btn btn_close">Close</a>
+		</div><!-- right -->
+	</div><!-- button_area -->
+</div><!-- ViewPopup -->

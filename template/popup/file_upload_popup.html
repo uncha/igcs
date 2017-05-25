@@ -1,0 +1,80 @@
+<div class="FileUploadPopup">
+	<div class="title_area">
+		<p class="title">File Upload</p>
+	</div><!-- title_area -->
+	<div class="drag_area">
+		<div class="drag_box">
+			<p>변경할 파일을 여기에 드래그 하시거나, 클릭해주세요</p>
+			<button class="btn bg_grey" type="button">외부 서비스 (OVP, Youtube) 파일 추가</button>
+		</div><!-- drag-box -->
+		<p class="description">(한번에 20개 이상 파일 업로드 불가, 1회 파일 사이즈 최대 10MB 초과 불가)</p>
+	</div><!-- drag-area -->
+	<div class="upload_list_area">
+		<ul>
+			<li>
+				<div class="img"><img src="/static/images/service/img03.gif" /></div>
+				<div class="file_name">IMG_2064.JPG</div>
+				<div class="line_bar">
+					<p class="line_bar_group">
+						<span class="gauge"></span>
+					</p><!-- line_bar_group -->
+				</div><!-- line_bar -->
+				<div class="status">53%</div>
+				<div class="delete"><button class="btn_delete fa fa-times" type="button"></button></div>
+			</li>
+			<li>
+				<div class="img"><img src="/static/images/service/img03.gif" /></div>
+				<div class="file_name">IMG_2064.JPG</div>
+				<div class="line_bar">
+					<p class="line_bar_group">
+						<span class="gauge"></span>
+					</p><!-- line_bar_group -->
+				</div><!-- line_bar -->
+				<div class="status">처리중</div>
+				<div class="delete"><button class="btn_delete fa fa-times" type="button"></button></div>
+			</li>
+			<li class="complete">
+				<div class="img"><img src="/static/images/service/img03.gif" /></div>
+				<div class="file_name">IMG_2064.JPG</div>
+				<div class="line_bar">
+					<p class="line_bar_group">
+						<span class="gauge"></span>
+					</p><!-- line_bar_group -->
+				</div><!-- line_bar -->
+				<div class="status">완료</div>
+				<div class="delete"><button class="btn_delete fa fa-times" type="button"></button></div>
+			</li>
+		</ul>
+	</div><!-- upload_list_area -->
+	<table class="tbl_form gbl_width-100p">
+		<colgroup>
+			<col style="width: 220px" />
+			<col style="" />
+		</colgroup>
+		<tbody>
+			<tr class="keyword_area">
+				<th>Keyword</th>
+				<td>
+					<p><input style="width:330px" placeholder="태그를 입력하고 엔터를 치세요" type="text" /><button class="btn_add_tag fa fa-plus" type="button"></button></p>
+					<div class="tags">
+						<ul>
+							<li>태그명 1</li>
+							<li>태그명 2</li>
+							<li>태그명 3</li>
+						</ul>
+					</div><!-- tags -->
+				</td>
+			</tr><!-- keyword_area -->
+			<tr class="description_area">
+				<th>Description</th>
+				<td><textarea style="resize: none;" rows="6" placeholder="설명내용을 출력하는 공간입니다…"></textarea></td>
+			</tr><!-- description_area -->
+		</tbody>
+	</table><!-- tbl_form -->
+	<div class="button_area">
+		<div class="right">
+			<a href="#" class="btn bg_violet">Save</a>
+			<a href="#" class="btn bg_grey">Cancel</a>
+		</div><!-- right -->
+	</div><!-- button_area -->
+</div><!-- FileUploadPopup -->

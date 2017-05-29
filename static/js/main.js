@@ -13,9 +13,7 @@ require.config({
 requirejs(['Popup', 'ViewPopup', 'ImageUploadPopup', 'FileUploadPopup', 'Confirm', 'SelectMenu', 'VideoPlayer'], function(){
 	var data = {
 		lastId:0,
-		popupList:[
-			/*{id:1, child:'ImagePopup'}*/
-		],
+		popupList:[/*{id:1, child:'ImagePopup'}*/],
 		confirmShow:false,
 		confirmText:{
 			title:'타이틀',
@@ -34,9 +32,9 @@ requirejs(['Popup', 'ViewPopup', 'ImageUploadPopup', 'FileUploadPopup', 'Confirm
 		el: '#app',
 		data:data,
 		methods:{
-			createPopup:function(child){
+			createPopup:function(child, dataUrl){
 				this.lastId++;
-				this.popupList.push({id:this.lastId, child:child});
+				this.popupList.push({id:this.lastId, child:child, dataUrl:dataUrl});
 			},
 			onPopupClose:function(id){
 				for(var i in this.popupList){
@@ -66,3 +64,5 @@ requirejs(['Popup', 'ViewPopup', 'ImageUploadPopup', 'FileUploadPopup', 'Confirm
 		}
 	});
 });
+
+

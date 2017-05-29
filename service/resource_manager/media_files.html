@@ -24,7 +24,8 @@
 
 		<section id="contents" class="service resource_manager">
 			<div class="cont">
-				<button type="button" @click="createPopup('ViewPopup')">뷰 팝업</button>
+				<button type="button" @click="createPopup('ViewPopup', '/data/view.json')">비디오 팝업</button>
+				<button type="button" @click="createPopup('ViewPopup', '/data/view02.json')">이미지 팝업</button>
 				<button type="button" @click="createPopup('ImageUploadPopup')">이미지 업로드 팝업</button>
 				<button type="button" @click="createPopup('FileUploadPopup')">파일 업로드 팝업</button>
 				<button type="button" @click="deleteConfirm()">삭제 확인</button>
@@ -45,7 +46,7 @@
 						></select-menu>
 					</transition>
 				</div>
-								
+				
 			</div><!-- cont -->
 		</section><!-- contents -->
 		
@@ -59,7 +60,8 @@
 		<transition-group name="fade">
 			<popup 
 				:id="popup.id" 
-				:child="popup.child" 
+				:child="popup.child"
+				:data-url="popup.dataUrl"
 				v-on:popup-close="onPopupClose" 
 				v-for="popup in popupList"
 				v-bind:key="popup"

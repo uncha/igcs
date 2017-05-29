@@ -1,11 +1,13 @@
 define(function () {
     var child;
+    var dataUrl;
     var popupCont = {
         render:function(createElement){
-            return createElement(
-                child,
-                this.$slots.default
-            );
+            return createElement(child, {
+                props:{
+                    dataUrl:dataUrl
+                }
+            });
         }
     }
     
@@ -16,13 +18,14 @@ define(function () {
             dataType:'html',
             success:function(template){
                 resolve({
-                    props:['child', 'id'],
+                    props:['child', 'id', 'dataUrl'],
                     template:template,
                     components:{
                         'popup-cont':popupCont
                     },
                     created:function(){
                         child = this.child;
+                        dataUrl = this.dataUrl;
                     },
                     methods:{
                         onCloseClick:function(){
@@ -36,7 +39,7 @@ define(function () {
             }
         });
     });
-
+    
     return {
         Popup:Popup
     }

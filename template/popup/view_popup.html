@@ -4,17 +4,20 @@
 	</div><!-- title_area -->
 	<div class="cont_area">
 
-		<!-- <img
+		<img
 			v-if="contentType=='image'"
 			class="img" 
 			src="/static/images/service/img01.png" 
-			alt="IMG_2046" 
-		/> -->
+			alt="title" 
+		/>
 		
-		<video-player></video-player>
+		<video-player 
+			v-if="contentType=='video'"
+		>
+		</video-player>
 
-		<a class="btn_prev fa fa-angle-left" href="#" title="이전"></a>
-		<a class="btn_next fa fa-angle-right" href="#" title="다음"></a>
+		<a @click.prevent="prevClick" class="btn_prev fa fa-angle-left" href="#" title="이전"></a>
+		<a @click.prevent="nextClick" class="btn_next fa fa-angle-right" href="#" title="다음"></a>
 	</div><!-- cont_area -->
 	<div class="detail_area">
 		<table summary="이미지 설명" class="tbl gbl_width-100p tbl_detail">

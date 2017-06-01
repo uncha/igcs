@@ -6,11 +6,12 @@ require.config({
         FileUploadPopup: './components/popup/FileUploadPopup',
         Confirm:'./components/form/Confirm',
         SelectMenu:'./components/form/SelectMenu',
-        VideoPlayer:'./components/media/VideoPlayer'
+        VideoPlayer:'./components/media/VideoPlayer',
+        Tag:'./components/form/Tag'
     }
 });
 
-requirejs(['Popup', 'ViewPopup', 'ImageUploadPopup', 'FileUploadPopup', 'Confirm', 'SelectMenu', 'VideoPlayer'], function(){
+requirejs(['Popup', 'ViewPopup', 'ImageUploadPopup', 'FileUploadPopup', 'Confirm', 'SelectMenu', 'VideoPlayer', 'Tag'], function(){
 	var data = {
 		lastId:0,
 		popupList:[/*{id:1, child:'ImagePopup'}*/],

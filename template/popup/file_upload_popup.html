@@ -1,9 +1,9 @@
-<div class="FileUploadPopup">
+<div class="FileUploadPopup" @dragover.prevent @drop.prevent>
 	<div class="title_area">
 		<p class="title">File Upload</p>
 	</div><!-- title_area -->
 	<div class="drag_area">
-		<div class="drag_box">
+		<div class="drag_box" @dragover.prevent @drop.prevent="onDroppable($event)">
 			<p>변경할 파일을 여기에 드래그 하시거나, 클릭해주세요</p>
 			<button class="btn bg_grey" type="button">외부 서비스 (OVP, Youtube) 파일 추가</button>
 		</div><!-- drag-box -->
@@ -11,38 +11,16 @@
 	</div><!-- drag-area -->
 	<div class="upload_list_area">
 		<ul>
-			<li>
-				<div class="img"><img src="/static/images/service/img03.gif" /></div>
-				<div class="file_name">IMG_2064.JPG</div>
+			<li :class="{complete:list.loadedComplete}" v-for="(list, i) in uploadList">
+				<div class="img"><img :src="list.thumbnail" /></div>
+				<div class="file_name">{{list.fileName}}</div>
 				<div class="line_bar">
 					<p class="line_bar_group">
-						<span class="gauge"></span>
+						<span class="gauge" :style="{width:list.progress + '%'}"></span>
 					</p><!-- line_bar_group -->
 				</div><!-- line_bar -->
-				<div class="status">53%</div>
-				<div class="delete"><button class="btn_delete fa fa-times" type="button"></button></div>
-			</li>
-			<li>
-				<div class="img"><img src="/static/images/service/img03.gif" /></div>
-				<div class="file_name">IMG_2064.JPG</div>
-				<div class="line_bar">
-					<p class="line_bar_group">
-						<span class="gauge"></span>
-					</p><!-- line_bar_group -->
-				</div><!-- line_bar -->
-				<div class="status">처리중</div>
-				<div class="delete"><button class="btn_delete fa fa-times" type="button"></button></div>
-			</li>
-			<li class="complete">
-				<div class="img"><img src="/static/images/service/img03.gif" /></div>
-				<div class="file_name">IMG_2064.JPG</div>
-				<div class="line_bar">
-					<p class="line_bar_group">
-						<span class="gauge"></span>
-					</p><!-- line_bar_group -->
-				</div><!-- line_bar -->
-				<div class="status">완료</div>
-				<div class="delete"><button class="btn_delete fa fa-times" type="button"></button></div>
+				<div class="status"><span class="progress">{{list.progress | progressStatus}}<i v-show="!list.loadedComplete">%</i></span></div>
+				<div class="delete"><button @click="onDeleteClick(i)" class="btn_delete fa fa-times" type="button"></button></div>
 			</li>
 		</ul>
 	</div><!-- upload_list_area -->
@@ -55,14 +33,7 @@
 			<tr class="keyword_area">
 				<th>Keyword</th>
 				<td>
-					<p><input style="width:330px" placeholder="태그를 입력하고 엔터를 치세요" type="text" /><button class="btn_add_tag fa fa-plus" type="button"></button></p>
-					<div class="tags">
-						<ul>
-							<li>태그명 1</li>
-							<li>태그명 2</li>
-							<li>태그명 3</li>
-						</ul>
-					</div><!-- tags -->
+					<Tag></Tag>
 				</td>
 			</tr><!-- keyword_area -->
 			<tr class="description_area">

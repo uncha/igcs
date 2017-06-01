@@ -20,5 +20,5 @@ a:action{text-decoration: none;}
 .blind{overflow:hidden;position:absolute;top:0;left:0;width:1px;height:1px;font-size:0;line-height:0}
 
 button{outline: none; cursor: pointer;}
-input, textarea{outline: none;}
+input, textarea{outline: none; font-family: 'Noto Sans KR';	font-weight: 300; color:#828282; font-size:14px;}
 .btn{display:inline-block; border:0; border-radius: 3px; background: #BBB; padding:13px 28px; color: #FFF}

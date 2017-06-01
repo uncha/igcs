@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var draggable = document.getElementById('draggable');
+			var droppable = document.getElementById('droppable');
+
+			droppable.addEventListener('dragover', function(e){
+				e.preventDefault();
+			});
+
+			droppable.addEventListener('drop', function(e){
+				e.preventDefault();
+
+				var transfer = e.dataTransfer; // event객체로 부터 dataTransfer객체를 읽어옴
+				// dataTransfer객체의 속성인 files를 읽어옴 files는 드래그한 파일들을 배열로 지니고 있음
+				var files = transfer.files;
+
+				for(var i=0; i<files.length; i++){ // 배열안 파일의 갯수만큼 반복
+					var file = files[i];
+					// 이미지 태그를 생성하여 file주소를 src에 할당해 준다
+					droppable.innerHTML += '<img src=' + window.URL.createObjectURL(file) + ' />';
+				}
+			}, true);
+		}
+	</script>
+</head>
+<body>
+	<div id="droppable" style="border:1px solid #000; width: 500px; height: 400px"></div>
+</body>
+</html>

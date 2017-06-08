@@ -19,7 +19,7 @@
 		<header id="header">
 			<div class="header_cont">
 				
-			</div><!-- header-cont -->
+			</div><!-- header_cont -->
 		</header><!-- header -->
 
 		<section id="contents" class="service resource_manager">
@@ -31,7 +31,7 @@
 				<button type="button" @click="deleteConfirm()">삭제 확인</button>
 				<button type="button" @click="siteSelectMenu()">{{siteSelectMenuList[siteSelectId].text}}</button>
 				
-				<div class="select_container" style="position: relative; height: 300px; overflow: hidden;">
+				<div class="select_container">
 					<!-- selectmenu component -->
 					<transition 
 						name="slide"
@@ -53,11 +53,11 @@
 		<footer id="footer">
 			<div class="footer_cont">
 				
-			</div><!-- footer-cont -->
+			</div><!-- footer_cont -->
 		</footer><!-- footer -->
 
 		<!-- popup component -->
-		<transition-group name="fade">
+		<transition-group name="fade" tag="div"> <!-- note: transition-group renders an actual element: <span> by default -->
 			<popup 
 				:id="popup.id" 
 				:child="popup.child"

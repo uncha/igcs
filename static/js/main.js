@@ -13,13 +13,16 @@ require.config({
 
 requirejs(['Popup', 'ViewPopup', 'ImageUploadPopup', 'FileUploadPopup', 'Confirm', 'SelectMenu', 'VideoPlayer', 'Tag'], function(){
 	var data = {
+		/* view & upload popup */
 		lastId:0,
 		popupList:[/*{id:1, child:'ImagePopup'}*/],
+		/* confirm dialog */
 		confirmShow:false,
 		confirmText:{
 			title:'타이틀',
 			question:'질문'
 		},
+		/* site select drop-down menu */
 		siteSelectMenuShow:false,
 		siteSelectId:0,
 		siteSelectMenuList:[
@@ -31,7 +34,7 @@ requirejs(['Popup', 'ViewPopup', 'ImageUploadPopup', 'FileUploadPopup', 'Confirm
 	
 	var app = new Vue({
 		el: '#app',
-		data:data,
+		data: data,
 		methods:{
 			createPopup:function(child, dataUrl){
 				this.lastId++;

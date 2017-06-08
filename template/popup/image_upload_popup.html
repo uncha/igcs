@@ -4,33 +4,27 @@
 		<span class="name">video.mp4 : </span>
 		<span class="state">수정중</span>
 	</div>
-	<table class="tbl_form gbl_width-100p">
-		<colgroup>
-			<col style="width: 220px" />
-			<col style="" />
-		</colgroup>
-		<tbody>
-			<tr class="upload_area">
-				<th style="padding-top:0">
-					<img :src="src" />
-					<p class="file_name">{{fileName}}</p>
-				</th>
-				<td style="padding-top:0" @dragover.prevent @drop.prevent="onDroppable($event)">
-					<span class="drag_area">변경할 파일을 여기에 드래그 하시거나, 클릭해주세요</span>
-				</td>
-			</tr>
-			<tr class="keyword_area">
-				<th>Keyword</th>
-				<td>
-					<Tag :tag-list="['tag1', 'tag2']"></Tag>
-				</td>
-			</tr>
-			<tr class="description_area">
-				<th>Description</th>
-				<td><textarea style="resize: none;" rows="6" placeholder="현재 등록된 설명 정보를 수정합니다."></textarea></td>
-			</tr>
-		</tbody>
-	</table>
+	<div class="tbl_form gbl_width-100p">
+		<div class="upload_area">
+			<div>
+				<img :src="src" />
+				<p class="file_name">{{fileName}}</p>
+			</div>
+			<div @dragover.prevent @drop.prevent="onDroppable($event)">
+				<span class="drag_area">변경할 파일을 여기에 드래그 하시거나, 클릭해주세요</span>
+			</div>
+		</div>
+		<div class="keyword_area">
+			<div>Keyword</div>
+			<div>
+				<Tag :tag-list="['tag1', 'tag2']"></Tag>
+			</div>
+		</div>
+		<div class="description_area">
+			<div>Description</div>
+			<div><textarea style="resize: none;" rows="6" placeholder="현재 등록된 설명 정보를 수정합니다."></textarea></div>
+		</div>
+	</div>
 	<div class="button_area">
 		<div class="left">
 			<a href="#" class="btn bg_red btn_delete">Delete</a>

@@ -1,6 +1,17 @@
 <div class="VideoPlayer">
 	<div class="video_area" @mouseover="videoAreaMouseover" @mouseout="videoAreaMouseout">
-		<video class="video" :autoplay="playState" @loadeddata="onLoadedData($event)" @timeupdate="onTimeUpdate($event)">
+		<div class="play_control">
+			<transition name="fade">
+				<button
+					v-if="centerButtonShow"
+					type="button" 
+					@click="togglePlay"
+					:class="centerPlayControlClass"
+					class="fa"
+				></button>
+			</transition>
+		</div><!-- play_control -->
+		<video class="video" :autoplay="playState" @loadeddata="onLoadedData($event)" @timeupdate="onTimeUpdate($event)" @ended="onEnded($event)">
 			<source
 				v-for="source in sources"
 				:src="source.src"
@@ -8,26 +19,15 @@
 			>
 			</source>
 		</video>
-		<div class="play_control">
-			<transition name="fade">
-				<button
-					v-if="centerButtonShow"
-					@click="togglePlay" 
-					type="button" 
-					:class="centerPlayControlClass" 
-					class="fa"
-				></button>
-			</transition>
-		</div><!-- play_control -->
 	</div><!-- video_area -->
 	<div class="controller_area">
 		<div class="control_group">
 			<div class="play_control">
 				<button 
 					type="button" 
-					class="fa" 
-					:class='playControlClass' 
 					@click="togglePlay"
+					:class="playControlClass"
+					class="fa"
 				></button>
 			</div><!-- play_control -->
 			<div class="duration_bar">
@@ -36,7 +36,7 @@
 				</div>
 			</div><!-- duration_bar -->
 			<div class="duration_time">
-				<span class="current_time">{{currentTime | time}}</span> / <span class="total_time">{{totalTime | time}}</span>
+				<span class="current_time" alt="현재 재생시간" title="현재 재생시간">{{currentTime | time}}</span> / <span class="total_time" alt="총 재생시간" title="총 재생시간">{{totalTime | time}}</span>
 			</div><!-- duration_time -->
 			<div class="volum_control">
 				

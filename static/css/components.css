@@ -4,13 +4,13 @@
 .VideoPlayer{width: 960px; position: relative;}
 .VideoPlayer .video_area{width: 100%; height: 520px; background: #000; position: relative;}
 .VideoPlayer .video_area video{width: 100%; height: 100%;}
-.VideoPlayer .video_area .play_control{position: absolute; left:50%; top:50%;}
+.VideoPlayer .video_area .play_control{position: absolute; left:50%; top:50%; z-index:99;}
 .VideoPlayer .video_area .play_control button{border:0; background: transparent; color:#FFF; margin-left:-47.5px; margin-top:-47.5px; font-size:95px; width: 100px; height: 100px;}
 .VideoPlayer .controller_area{display: table; width: 100%; height: 42px; background: #c6c6c9; left:200px; top:200px;}
 .VideoPlayer .controller_area .control_group{display: table-row;}
 .VideoPlayer .controller_area .control_group > div{display: table-cell; vertical-align: middle; text-align: center;}
 .VideoPlayer .controller_area .control_group .play_control{width: 61px}
-.VideoPlayer .controller_area .control_group .play_control button{border:0; background: transparent; color: #FFF}
+.VideoPlayer .controller_area .control_group .play_control button{border:0; background: transparent; color: #FFF;}
 .VideoPlayer .controller_area .control_group .duration_bar .total_range{width: 100%; height: 5px; background: #e1e1e1; position: relative;}
 .VideoPlayer .controller_area .control_group .duration_bar .current_range{width: 0; height: 100%; background: #726dab}
 .VideoPlayer .controller_area .control_group .duration_time{width: 132px; color:#FFF;}
@@ -26,6 +26,7 @@
 .Confirm .cont-area .question{margin-bottom: 98px; font-size:20px; color:#292929;}
 
 /* SelectMenu */
+.select_container {position: relative; height: 300px; overflow: hidden;}
 .SelectMenu{background: #FFF; width: 440px; position: absolute; top:5px; border-radius: 5px; overflow: hidden; box-shadow: 0 0 10px #888888;}
 .SelectMenu .title_area{padding:29px 29px 20px; color:#444; font-weight: 500; background: #f0f0f0}
 .SelectMenu .select_list_area{border-top:1px solid #d1d1d1; padding: 0 20px;}
@@ -39,9 +40,9 @@
 /* Popup */
 .Popup{background: #FFF; padding:0 70px; position: absolute; top:30px; border-radius: 5px}
 .Popup > .btn_close{position: absolute; top:25px; right: 25px; font-size:25px; color:#999;}
-.Popup .tbl_form tr{border-bottom: 1px solid #e7e7e7}
-.Popup .tbl_form tr th{vertical-align: middle; padding:40px 0; font-size:16px; color:#444; text-align: left}
-.Popup .tbl_form tr td{vertical-align: middle; padding:40px 0;}
+.Popup .tbl_form > div{width:100%; border-bottom: 1px solid #e7e7e7; overflow:hidden; display:table;}
+.Popup .tbl_form > div > div:first-child{width:220px; display:table-cell; vertical-align: middle; padding:40px 0; font-size:16px; color:#444; text-align: left}
+.Popup .tbl_form > div > div:last-child{vertical-align: middle; padding:40px 0;}
 .Popup .tbl_form input{vertical-align: middle; padding:13px 10px; border:1px solid #e2e2e2; font-size: 13px; line-height: 14px; box-sizing: border-box;}
 .Popup .tbl_form textarea{padding:15px 10px; border:1px solid #e2e2e2; font-size: 14px; box-sizing: border-box;}
 .Popup .button_area{margin:35px 0 40px;}
@@ -55,7 +56,7 @@
 .Popup .FileUploadPopup .drag_area .drag_box{border:1px solid #d0d0d0; height: 174px; box-sizing: border-box; padding:60px 0 16px; text-align: center; background: url(/static/images/service/drag_form_bg02.gif); color:#292929; font-size: 16px}
 .Popup .FileUploadPopup .drag_area .drag_box button{margin-top:40px; font-size: 14px; width: 393px;}
 .Popup .FileUploadPopup .drag_area .description{font-size: 12px; color:#716ca9; line-height: 30px}
-.Popup .FileUploadPopup .tbl_form th{font-size:16px; color:#444; font-weight: 500}
+.Popup .FileUploadPopup .tbl_form > div > div {font-size:16px; color:#444; font-weight: 500}
 .Popup .FileUploadPopup .description_area textarea{width: 100%; box-sizing: border-box;}
 .Popup .FileUploadPopup .keyword_area .tags{text-align: right; vertical-align: middle;}
 .Popup .FileUploadPopup .keyword_area .tags ul{position: relative;}
@@ -83,9 +84,10 @@
 .Popup .ImageUploadPopup .title_area .type{color: #726dab}
 .Popup .ImageUploadPopup .title_area .name{color:#444; font-weight: 500}
 .Popup .ImageUploadPopup .title_area .state{color:#f05a54; font-weight: 500}
-.Popup .ImageUploadPopup .upload_area td .drag_area{display:block; border:1px solid #d0d0d0; width: 735px; color:#292929; font-size: 16px; line-height: 172px; text-align: center; background: url(/static/images/service/drag_form_bg.gif) center no-repeat}
-.Popup .ImageUploadPopup .upload_area th .file_name{font-size:16px; color:#828282; padding-top: 13px}
-.Popup .ImageUploadPopup .upload_area th img{width: 203px; height: 120px}
+.Popup .ImageUploadPopup .upload_area > div {padding-top:0 !important;}
+.Popup .ImageUploadPopup .upload_area > div > .drag_area{display:block; border:1px solid #d0d0d0; width: 735px; color:#292929; font-size: 16px; line-height: 172px; text-align: center; background: url(/static/images/service/drag_form_bg.gif) center no-repeat}
+.Popup .ImageUploadPopup .upload_area > div > .file_name{font-size:16px; color:#828282; padding-top: 13px}
+.Popup .ImageUploadPopup .upload_area > div:first-child > img{width: 203px; height: 120px}
 .Popup .ImageUploadPopup .description_area textarea{width: 100%; box-sizing: border-box;}
 .Popup .ImageUploadPopup .keyword_area .tags{text-align: right; vertical-align: middle;}
 .Popup .ImageUploadPopup .keyword_area .tags ul{position: relative;}
@@ -102,16 +104,18 @@
 .Popup .ViewPopup .cont_area .btn_next{position: absolute; font-size:50px; color:#c0c0c0; text-align: center; width: 70px; right:-70px; top:50%; margin-top:-25px;}
 .Popup .ViewPopup .detail_area {padding-bottom: 18px; border-bottom: 1px solid #CCC}
 .Popup .ViewPopup .detail_area .tbl_detail{position: relative;}
-.Popup .ViewPopup .detail_area .tbl_detail tr td{vertical-align: middle;}
-.Popup .ViewPopup .detail_area .tbl_detail tr td.detail_text{font-size:16px; height: 86px;}
-.Popup .ViewPopup .detail_area .tbl_detail tr td.tags{text-align: right; height: 86px; vertical-align: middle;}
-.Popup .ViewPopup .detail_area .tbl_detail tr td.tags ul{position: relative; float: right;}
-.Popup .ViewPopup .detail_area .tbl_detail tr td.tags ul:after{content:''; display: block; clear:both;}
-.Popup .ViewPopup .detail_area .tbl_detail tr td.tags ul li{float:left; margin-left: 6px; background: #f8f8f8; border:1px solid #dbdbdb; padding:8px 25px;}
-.Popup .ViewPopup .detail_area .tbl_detail tr td.file_info{font-size:14px; height: 14px;}
-.Popup .ViewPopup .detail_area .tbl_detail tr td.file_info dl{display: inline;}
-.Popup .ViewPopup .detail_area .tbl_detail tr td.file_info dl dt{display: inline;}
-.Popup .ViewPopup .detail_area .tbl_detail tr td.file_info dl dd{display: inline;}
-.Popup .ViewPopup .detail_area .tbl_detail tr td.update{text-align: right; font-size:12px; height: 14px; vertical-align: bottom;}
-.Popup .ViewPopup .detail_area .tbl_detail tr td.update dl dt{display: inline;}
-.Popup .ViewPopup .detail_area .tbl_detail tr td.update dl dd{display: inline;}
+.Popup .ViewPopup .detail_area .tbl_detail > div {width:100%; display:table; overflow:hidden;}
+.Popup .ViewPopup .detail_area .tbl_detail > div > div {display:table-cell; vertical-align:middle;}
+.Popup .ViewPopup .detail_area .tbl_detail > div:last-child > div {width:50%;}
+.Popup .ViewPopup .detail_area .tbl_detail .detail_text{font-size:16px; padding:28px 0;}
+.Popup .ViewPopup .detail_area .tbl_detail .tags{text-align: right; padding:28px; padding-right:0;}
+.Popup .ViewPopup .detail_area .tbl_detail .tags ul{position: relative; float: right;}
+.Popup .ViewPopup .detail_area .tbl_detail .tags ul:after{content:''; display: block; clear:both;}
+.Popup .ViewPopup .detail_area .tbl_detail .tags ul li{float:left; margin-left: 6px; background: #f8f8f8; border:1px solid #dbdbdb; padding:8px 25px;}
+.Popup .ViewPopup .detail_area .tbl_detail .file_info{font-size:14px; height: 14px;}
+.Popup .ViewPopup .detail_area .tbl_detail .file_info dl{display: inline;}
+.Popup .ViewPopup .detail_area .tbl_detail .file_info dl dt{display: inline;}
+.Popup .ViewPopup .detail_area .tbl_detail .file_info dl dd{display: inline;}
+.Popup .ViewPopup .detail_area .tbl_detail .update{text-align: right; font-size:12px; height: 14px; vertical-align: bottom;}
+.Popup .ViewPopup .detail_area .tbl_detail .update dl dt{display: inline;}
+.Popup .ViewPopup .detail_area .tbl_detail .update dl dd{display: inline;}

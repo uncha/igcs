@@ -75,6 +75,9 @@ define(function () {
                         onLoadedData:function(e){
                             this.video = e.target;
                             this.totalTime = this.video.duration;
+                        },
+                        onEnded:function(e){
+                            this.playState = e.target && !e.target.ended; //ended:true means not playing -> this.playState:false
                         }
                     }
                 });

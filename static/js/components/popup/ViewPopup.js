@@ -1,4 +1,4 @@
-define(function () {
+define(['BasePopupCont'], function (mixin) {
     var ViewPopup = Vue.component('ViewPopup', function(resolve, reject){
         $.ajax({
             url:'/template/popup/view_popup.html',
@@ -7,6 +7,7 @@ define(function () {
             success:function(template){
                 resolve({
                     template:template,
+                    mixins:[mixin.BasePopupCont],
                     props:['dataUrl'],
                     beforeMount:function(){
                         dataLoad(this, this.dataUrl);

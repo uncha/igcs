@@ -1,4 +1,4 @@
-define(function () {
+define(['BasePopupCont'], function (mixin) {
     var ImageUploadPopup = Vue.component('ImageUploadPopup', function(resolve, reject){
         var data = {
             title:'',
@@ -13,6 +13,7 @@ define(function () {
             success:function(template){
                 resolve({
                     template:template,
+                    mixins:[mixin.BasePopupCont],
                     data:function(){
                         return data;
                     },
@@ -33,7 +34,7 @@ define(function () {
                                 alert('10MB가 넘는 파일이 포함되어 있습니다.');
                                 return false;
                             }
-
+                            
                             // 이미지 메모리 해제
                             if(this.src) window.URL.revokeObjectURL(this.src);
 

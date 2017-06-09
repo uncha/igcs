@@ -1,17 +1,21 @@
 define(function () {
-    var child;
-    var dataUrl;
+    var parent;
     var popupCont = {
         render:function(createElement){
-            return createElement(child, {
+            return createElement(parent.child, {
                 props:{
-                    dataUrl:dataUrl
+                    dataUrl:parent.dataUrl
+                },
+                on:{
+                    "cont-mounted":function(){
+                        parent.contMounted();
+                    }
                 }
             });
         }
     }
     
-    var Popup = Vue.component('popup', function(resolve, reject){
+    Popup = Vue.component('popup', function(resolve, reject){
         $.ajax({
             url:'/template/popup/popup.html',
             type:'get',
@@ -24,12 +28,20 @@ define(function () {
                         'popup-cont':popupCont
                     },
                     created:function(){
-                        child = this.child;
-                        dataUrl = this.dataUrl;
+                        parent = this;
                     },
                     methods:{
                         onCloseClick:function(){
                             this.$emit('popup-close', this.id);
+                        },
+                        contMounted:function(){
+                            var $popupWrap = $(this.$el).find('.popup_wrap');
+                            $popupWrap.css({
+                                left:'50%',
+                                top:'50%',
+                                marginLeft:-1 * $popupWrap.outerWidth() / 2,
+                                marginTop:-1 * $popupWrap.outerHeight() / 2
+                            });
                         }
                     }
                 });

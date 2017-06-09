@@ -1,4 +1,4 @@
-define(function () {
+define(['BasePopupCont'], function (mixin) {
     var FileUploadPopup = Vue.component('FileUploadPopup', function(resolve, reject){
         var data = {
             title:'IMG_2056.jpg',
@@ -21,6 +21,7 @@ define(function () {
             success:function(template){
                 resolve({
                     template:template,
+                    mixins:[mixin.BasePopupCont],
                     data:function(){
                         return data;
                     },

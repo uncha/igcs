@@ -1,4 +1,7 @@
 <div class="Popup">
-	<popup-cont></popup-cont>
-	<a href="#" @click.prevent="onCloseClick()" aria-hidden="true" class="btn_close fa fa-times"></a>
+	<div class="popup_bg"></div><!-- popup_bg -->
+	<div class="popup_wrap">
+		<popup-cont></popup-cont>
+		<a href="#" @click.prevent="onCloseClick()" aria-hidden="true" class="btn_close fa fa-times"></a>
+	</div><!-- popup_wrap -->
 </div>

@@ -1,13 +1,16 @@
 <div class="Confirm">
-	<div class="title_area">
-		<p class="title">{{title}}</p>
-	</div><!-- title_area -->
-	<div class="cont-area">
-		<p class="question">{{question}}</p>
-		<div class="button-group">
-			<a href="#" @click="onConfirmClick(true)" class="btn bg_violet">Yes</a>
-			<a href="#" @click="onConfirmClick(false)" class="btn bg_grey">No</a>
-		</div><!-- button-group -->
-	</div><!-- cont-area -->
-	<a href="#" title="닫기" @click.prevent="onCloseClick()" class="btn_close fa fa-times"></a>
+	<div class="confirm_bg"></div>
+	<div class="confirm_wrap">
+		<div class="title_area">
+			<p class="title">{{title}}</p>
+		</div><!-- title_area -->
+		<div class="cont-area">
+			<p class="question">{{question}}</p>
+			<div class="button-group">
+				<a href="#" @click="onConfirmClick(true)" class="btn bg_violet">Yes</a>
+				<a href="#" @click="onConfirmClick(false)" class="btn bg_grey">No</a>
+			</div><!-- button-group -->
+		</div><!-- cont-area -->
+		<a href="#" title="닫기" @click.prevent="onCloseClick()" class="btn_close fa fa-times"></a>
+	</div><!-- confirm_wrap -->
 </div><!-- Confirm -->

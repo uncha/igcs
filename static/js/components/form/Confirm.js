@@ -8,6 +8,15 @@ define(function () {
                 resolve({
                     props:['title', 'question'],
                     template:template,
+                    mounted:function(){
+                        var $confirmWrap = $(this.$el).find('.confirm_wrap');
+                        $confirmWrap.css({
+                            left:'50%',
+                            top:'50%',
+                            marginLeft:-1 * $confirmWrap.outerWidth() / 2,
+                            marginTop:-1 * $confirmWrap.outerHeight() / 2
+                        });
+                    },
                     methods:{
                         onCloseClick:function(){
                             this.$emit('confirm-complete', false);

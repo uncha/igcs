@@ -1,4 +1,4 @@
-define(['BasePopupCont'], function (mixin) {
+define(['BasePopupCont'], function (BasePopupCont) {
     var ImageUploadPopup = Vue.component('ImageUploadPopup', function(resolve, reject){
         var data = {
             title:'',
@@ -13,7 +13,7 @@ define(['BasePopupCont'], function (mixin) {
             success:function(template){
                 resolve({
                     template:template,
-                    mixins:[mixin.BasePopupCont],
+                    mixins:[BasePopupCont],
                     data:function(){
                         return data;
                     },
@@ -21,13 +21,13 @@ define(['BasePopupCont'], function (mixin) {
                         onDroppable:function(e){
                             var file = e.dataTransfer.files[0];
                             var url = window.URL.createObjectURL(file);
-
+                            
                             // 파일 유형 검사
                             if(!file.type.match('image')){
                                 alert('이미지 파일만 업로드 가능합니다.');
                                 return false;
                             }
-
+                            
                             // 파일 크기 검사
                             var limitByteSize = 10 * 1048576;
                             if(file.size > limitByteSize){
@@ -37,7 +37,7 @@ define(['BasePopupCont'], function (mixin) {
                             
                             // 이미지 메모리 해제
                             if(this.src) window.URL.revokeObjectURL(this.src);
-
+                            
                             this.src = url;
                             this.fileName = file.name;
                         }

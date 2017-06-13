@@ -1,4 +1,4 @@
-define(['BasePopupCont'], function (mixin) {
+define(['BasePopupCont'], function (BasePopupCont) {
     var FileUploadPopup = Vue.component('FileUploadPopup', function(resolve, reject){
         var data = {
             title:'IMG_2056.jpg',
@@ -21,7 +21,7 @@ define(['BasePopupCont'], function (mixin) {
             success:function(template){
                 resolve({
                     template:template,
-                    mixins:[mixin.BasePopupCont],
+                    mixins:[BasePopupCont],
                     data:function(){
                         return data;
                     },
@@ -85,7 +85,7 @@ define(['BasePopupCont'], function (mixin) {
                                         thumbnail = '/static/images/service/thumbnail_audio.gif';
                                         break;
                                 }
-
+                                
                                 // 파일 업로드 리스트 추가
                                 this.uploadList.push({
                                     fileName:file.name,

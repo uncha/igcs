@@ -1,5 +1,6 @@
 require.config({
     paths: {
+        ImageLoader:'./common/ImageLoader',
         Popup: './components/popup/Popup',
         ViewPopup: './components/popup/ViewPopup',
         ImageUploadPopup: './components/popup/ImageUploadPopup',
@@ -12,10 +13,11 @@ require.config({
     }
 });
 
-requirejs(['Popup', 'ViewPopup', 'ImageUploadPopup', 'FileUploadPopup', 'BasePopupCont', 'Confirm', 'SelectMenu', 'VideoPlayer', 'Tag'], function(){
+requirejs(['Popup', 'ViewPopup', 'ImageUploadPopup', 'FileUploadPopup', 'Confirm', 'SelectMenu', 'VideoPlayer', 'Tag'], function(){
 	var data = {
 		/* view & upload popup */
 		lastId:0,
+		hidePopupId:undefined,
 		popupList:[/*{id:1, child:'ImagePopup'}*/],
 		/* confirm dialog */
 		confirmShow:false,
@@ -55,16 +57,29 @@ requirejs(['Popup', 'ViewPopup', 'ImageUploadPopup', 'FileUploadPopup', 'BasePop
 				this.confirmShow = true;
 			},
 			onConfirmComplete:function(isConfirm){
-				console.log(isConfirm);
+				console.log('isConfirm = ' + isConfirm);
+
 				this.confirmShow = false;
+				
+				// 열려진 팝업이 존재하면
+				if(this.hidePopupId){
+					if(isConfirm) this.onPopupClose(this.hidePopupId);
+					this.hidePopupId = undefined;
+				}
 			},
 			siteSelectMenu:function(){
 				(this.siteSelectMenuShow) ? this.siteSelectMenuShow = false : this.siteSelectMenuShow = true;
 			},
 			onSelected:function(data, key){
-				console.log(data);
+				console.log('data = ' + data);
 				this.siteSelectId = key;
 				this.siteSelectMenuShow = false;
+			},
+			deleteContentConfirm:function(id){
+				this.hidePopupId = id;
+				this.confirmText.title = '파일삭제';
+				this.confirmText.question = '삭제하시겠습니까?';
+				this.confirmShow = true;
 			}
 		}
 	});

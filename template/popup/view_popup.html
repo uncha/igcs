@@ -59,7 +59,7 @@
 	<div class="button_area">
 		<div class="left">
 			<a href="#" class="btn bg_violet btn_modify" alt="수정">Modify</a>
-			<a href="#" class="btn bg_red btn_delete" alt="삭제">Delete</a>
+			<a href="#" v-on:click="onDeleteClick($event)" class="btn bg_red btn_delete" alt="삭제">Delete</a>
 		</div><!-- left -->
 		<div class="right">
 			<a href="#" class="btn bg_violet btn_download" alt="다운로드"><img class="mr10" src="/static/images/service/ico_download.gif" alt="download icon" />Download</a>

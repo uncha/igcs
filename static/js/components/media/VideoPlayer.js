@@ -48,6 +48,11 @@ define(function () {
                             return value;
                         }
                     },
+                    created:function(){
+                        data.playState = true;
+                        data.totalTime = 0;
+                        data.currentTime = 0;
+                    },
                     methods:{
                         togglePlay:function(){
                             if(this.playState){
@@ -78,6 +83,9 @@ define(function () {
                         },
                         onEnded:function(e){
                             this.playState = e.target && !e.target.ended; //ended:true means not playing -> this.playState:false
+                        },
+                        onDurationBarClick:function(e){
+                            this.video.currentTime = this.totalTime * e.offsetX / $(e.currentTarget).width();
                         }
                     }
                 });

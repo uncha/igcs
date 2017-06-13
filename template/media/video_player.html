@@ -30,7 +30,7 @@
 					class="fa"
 				></button>
 			</div><!-- play_control -->
-			<div class="duration_bar">
+			<div class="duration_bar" @click="onDurationBarClick($event)">
 				<div class="total_range">
 					<p :style="{width:currentRange + '%'}" class="current_range"></p>
 				</div>

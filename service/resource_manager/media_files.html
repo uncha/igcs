@@ -65,9 +65,9 @@
 				v-on:popup-close="onPopupClose" 
 				v-for="popup in popupList"
 				v-bind:key="popup"
+				v-on:delete-content-confirm="deleteContentConfirm"
 			></popup>
 		</transition-group>
-		
 		<!-- confirm component -->
 		<transition name="fade" tag="div">
 			<confirm 

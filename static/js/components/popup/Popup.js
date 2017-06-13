@@ -9,6 +9,9 @@ define(function () {
                 on:{
                     "cont-mounted":function(){
                         parent.contMounted();
+                    },
+                    "delete-content-confirm":function(){
+                        parent.$emit('delete-content-confirm', parent.id);
                     }
                 }
             });
@@ -30,18 +33,28 @@ define(function () {
                     created:function(){
                         parent = this;
                     },
+                    mounted:function(){
+                        $(window).resize(this.resize);
+                    },
                     methods:{
                         onCloseClick:function(){
                             this.$emit('popup-close', this.id);
                         },
                         contMounted:function(){
+                            this.resize();
+                        },
+                        resize:function(){
                             var $popupWrap = $(this.$el).find('.popup_wrap');
+
                             $popupWrap.css({
                                 left:'50%',
                                 top:'50%',
                                 marginLeft:-1 * $popupWrap.outerWidth() / 2,
                                 marginTop:-1 * $popupWrap.outerHeight() / 2
                             });
+
+                            if($popupWrap.offset().left < 0) $popupWrap.css({left:0, marginLeft:0});
+                            if($popupWrap.offset().top < 0) $popupWrap.css({top:0, marginTop:0});
                         }
                     }
                 });

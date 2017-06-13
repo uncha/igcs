@@ -1,4 +1,4 @@
-define(['BasePopupCont'], function (mixin) {
+define(['BasePopupCont'], function (BasePopupCont) {
     var ViewPopup = Vue.component('ViewPopup', function(resolve, reject){
         $.ajax({
             url:'/template/popup/view_popup.html',
@@ -7,16 +7,16 @@ define(['BasePopupCont'], function (mixin) {
             success:function(template){
                 resolve({
                     template:template,
-                    mixins:[mixin.BasePopupCont],
                     props:['dataUrl'],
-                    beforeMount:function(){
-                        dataLoad(this, this.dataUrl);
-                    },
+                    mixins:[BasePopupCont],
                     data:function(){
                         return {
                             title:"",
                             contentType:""
                         };
+                    },
+                    beforeMount:function(){
+                        dataLoad(this, this.dataUrl);
                     },
                     methods:{
                         prevClick:function(){
@@ -24,6 +24,9 @@ define(['BasePopupCont'], function (mixin) {
                         },
                         nextClick:function(){
                             dataLoad(this, '/data/view02.json');
+                        },
+                        onDeleteClick:function(e){
+                            this.$emit('delete-content-confirm');
                         }
                     }
                 });
@@ -41,7 +44,7 @@ define(['BasePopupCont'], function (mixin) {
             dataType:'json',
             success:function(data){
                 tg.title = data.title;
-                tg.contentType = data.contentType;
+                tg.contentType = data.contentType;                
             }
         });
     }

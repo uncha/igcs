@@ -1,9 +1,10 @@
 define(function () {
     return {
-        BasePopupCont:{
-            mounted:function(){
-                this.$emit('cont-mounted');
-            }
+    	mounted:function(){
+            this.$emit('cont-mounted');
+        },
+        updated:function(){
+            this.$emit('cont-mounted');
         }
     }
 });

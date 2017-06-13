@@ -1,0 +1,173 @@
+baseURL: gcs_backend/src/resources/static
+
+root
+|
+|---assets
+|---|---(what will be included?)
+|
+|---css
+|---|---common
+|---|---|---common.css
+|---|---|---font-awesome.min.css
+|---|---|---page.css
+|---|---|---reset.css
+|---|---|---spacing.css
+|---|---main
+|---|---|---main.css
+|---|---|---components.css
+|---|---recommendation
+|---|---|---sub.css
+|---|---|---components.css
+|---|---site-manager
+|---|---|---sub.css
+|---|---|---components.css
+|---|---resource-manager
+|---|---|---sub.css
+|---|---|---components.css
+|---|---social-manager
+|---|---|---sub.css
+|---|---|---components.css
+|---|---report-manager
+|---|---|---sub.css
+|---|---|---components.css
+|
+|---data
+|---|---common
+|---|---|---(todo)
+|---|---main
+|---|---|---(todo)
+|---|---recommendation
+|---|---|---(todo)
+|---|---site-manager
+|---|---|---(todo)
+|---|---resource-manager
+|---|---|---file-list.json
+|---|---|---(and so on)
+|---|---social-manager
+|---|---|---(todo)
+|---|---report-manager
+|---|---|---(todo)
+|
+|---fonts //example
+|---|---fontawesome
+|---|---|---fontawesome-webfont.eot
+|---|---|---fontawesome-webfont.svg
+|---|---|---fontawesome-webfont.ttf
+|---|---|---fontawesome-webfont.woff
+|---|---|---fontawesome-webfont.woff2
+|---|---|---fontawesome.otf
+|---|---notosanscjk
+|---|---|---notosanscjk-kr-100.ttf
+|---|---|---notosanscjk-kr-200.ttf
+|---|---|---notosanscjk-kr-400.ttf
+|---|---|---notosanscjk-kr-600.ttf
+|---|---|---notosanscjk-kr-800.ttf
+|
+|---images //example
+|---|---common
+|---|---|---logo.png
+|---|---|---topsection-icon-my-account.png
+|---|---|---topsection-icon-settings.png
+|---|---|---gnb-icon-service-main.png
+|---|---|---gnb-icon-site-manager.png
+|---|---|---gnb-icon-resource-manager.png
+|---|---|---gnb-icon-social-mangaer.png
+|---|---|---gnb-icon-recommendation.png
+|---|---|---gnb-icon-site-list-item.png
+|---|---|---gnb-icon-dashboard.png
+|---|---|---gnb-icon-web-builder.png
+|---|---|---gnb-icon-report-manager.png
+|---|---|---gnb-bullet-checked.png
+|---|---|---gnb-bullet-arrow-down.png
+|---|---|---gnb-bullet-arrow-right.png
+|---|---main
+|---|---|---icon-new-website-big.png
+|---|---recommendation
+|---|---|---(todo)
+|---|---site-manager
+|---|---|---(todo)
+|---|---resource-manager
+|---|---|---(todo)
+|---|---social-manager
+|---|---|---(todo)
+|---|---report-manager
+|---|---|---(todo)
+|
+|---js
+|---|---common //commonly used elements
+|---|---|---confirm.js
+|---|---|---gnb.js
+|---|---|---select-menu.js
+|---|---|---sidemenu.js
+|---|---|---topsection.js
+|---|---|---(and so on)
+|---|---main
+|---|---|---main.js
+|---|---|---components
+|---|---|---|---(todo) //components which are only used in main
+|---|---recommendation
+|---|---|---recommendation.js
+|---|---|---components
+|---|---|---|---(todo) //components which are only used in recommendation
+|---|---site-manager
+|---|---|---site-manager.js
+|---|---|---components
+|---|---|---|---(todo) //components which are only used in site manager
+|---|---resource-manager
+|---|---|---resource-manager.js
+|---|---|---components //components which are only used in resource manager
+|---|---|---|---video-player.js
+|---|---|---|---view-popup.js
+|---|---|---|---(and so on)
+|---|---social-manager
+|---|---|---social-manager.js
+|---|---|---components //components which are only used in social manager
+|---|---|---|---(todo)
+|---|---report-manager
+|---|---|---report-manager.js
+|---|---|---components //components which are only used in report manager
+|---|---|---|---(todo)
+|
+|---libs
+|---|---jquery
+|---|---|---jquery.min.js
+|---|---require
+|---|---|---require.js
+|---|---vue
+|---|---|---vue.js
+|---|---|---vue2-animate.css
+|---|---|---vue2-animate.min.css
+|
+|---template
+|---|---common //commonly used elements
+|---|---|---confirm.html
+|---|---|---gnb.html
+|---|---|---select-menu.html
+|---|---|---sidemenu.html
+|---|---|---(and so on)
+|---|---main
+|---|---|---main.html
+|---|---|---components
+|---|---|---|---(todo) //components which are only used in main
+|---|---recommendation
+|---|---|---recommendation.html
+|---|---|---components
+|---|---|---(todo) //components which are only used in recommendation
+|---|---site-manager
+|---|---|---site-manager.html
+|---|---|---components
+|---|---|---|---(todo) //components which are only used in site manager
+|---|---resource-manager
+|---|---|---resource-manager.html
+|---|---|---components //components which are only used in resource manager
+|---|---|---|---video-player.html
+|---|---|---|---view-popup.html
+|---|---|---|---(and so on)
+|---|---social-manager
+|---|---|---social-manager.html
+|---|---|---components //components which are only used in social manager
+|---|---|---|---(todo)
+|---|---report-manager
+|---|---|---report-manager.html
+|---|---|---components //components which are only used in report manager
+|---|---|---|---(todo)

@@ -29,13 +29,14 @@
 
 
 /* SelectMenu */
-.select_container {position: relative; height: 300px; overflow: hidden;}
-.SelectMenu{background: #FFF; width: 440px; position: absolute; top:5px; border-radius: 5px; overflow: hidden; box-shadow: 0 0 10px #888888;}
+/* bug: when the length of site name is looooong, checkbox is overlapped on text */
+.SelectMenu{background: #FFF; min-width: 350px; top:5px; border-radius: 10px; overflow: hidden;}
 .SelectMenu .title_area{padding:29px 29px 20px; color:#444; font-weight: 500; background: #f0f0f0}
 .SelectMenu .select_list_area{border-top:1px solid #d1d1d1; padding: 0 20px;}
-.SelectMenu .select_list_area ul li{line-height: 50px; border-bottom: 1px solid #e7e7e7}
+.SelectMenu .select_list_area ul li{line-height: 50px; border-bottom: 1px solid #e7e7e7; padding:10px 0;}
 .SelectMenu .select_list_area ul li:last-child{border-bottom: 0}
-.SelectMenu .select_list_area ul li > a{display: block; width: 100%; height: 100%; background: url(/static/images/service/ico_select_menu.png) left center no-repeat; text-indent: 24px; font-size: 18px}
+.SelectMenu .select_list_area ul li > a:hover {background-color:#ebebeb; border-radius:10px;}
+.SelectMenu .select_list_area ul li > a{display: block; width: 100%; height: 100%; background: url(/static/images/service/ico_select_menu.png) 10px center no-repeat; text-indent: 40px; font-size: 18px;}
 .SelectMenu .select_list_area ul li > a.checked{font-weight: 400; color:#706ba9; position: relative;}
 .SelectMenu .select_list_area ul li > a .fa-check{display: none;}
 .SelectMenu .select_list_area ul li > a.checked .fa-check{display: block; position: absolute; right: 20px; top:50%; margin-top:-9px;}

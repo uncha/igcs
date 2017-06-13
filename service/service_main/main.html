@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Service Main - IGCS</title>
+	<link href='http://fonts.googleapis.com/earlyaccess/notosanskr.css' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/static/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/libs/vue/vue2-animate.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/spacing.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/components.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/service_main.css">
+	<script type="text/javascript" src="/static/libs/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/libs/vue/vue.js"></script>
+</head>
+<body>
+	<!-- service_main -->
+	<div id="main">
+		<!-- header -->
+		<header>
+			<div class="inner">
+				<!-- logo -->
+				<h1><a href="#"><img src="/static/images/common/gnb_logo.png" alt="홈으로"></a></h1><!-- //logo -->
+				<!-- gnb -->
+				<ul id="nav">
+					<!-- main_service_nav -->
+					<li class="main-service"><a href="#" v-on:click.prevent="onMainNavClicked">Service Main</a>
+						<!-- service: 2nd depth -->
+						<div class="wrapper">
+							<transition
+								name="slide"
+								enter-active-class="slideInDown"
+								leave-active-class="slideOutUp"
+							>
+								<ul class="sub-nav" v-if="mainServiceNavShow">
+									<li class="selected"><a href="#" v-on:click.prevent="onMainNavClicked">
+										<span><img src="/static/images/common/gnb_icon_service_main.png"></span>
+										Service Main
+									</a></li>
+									<li><a href="#" v-on:click.prevent="onMainNavClicked">
+										<span><img src="/static/images/common/gnb_icon_site_manager.png"></span>
+										Site Manager
+									</a></li>
+									<li><a href="#" v-on:click.prevent="onMainNavClicked">
+										<span><img src="/static/images/common/gnb_icon_resource_manager.png"></span>
+										Resource Manager
+									</a></li>
+									<li><a href="#" v-on:click.prevent="onMainNavClicked">
+										<span><img src="/static/images/common/gnb_icon_social_manager.png"></span>
+										Social Manager
+										</a></li>
+									<li><a href="#" v-on:click.prevent="onMainNavClicked">
+										<span><img src="/static/images/common/gnb_icon_recommendation.png"></span>
+										Recommendation
+									</a></li>
+								</ul>
+							</transition>
+						</div><!-- //service: 2nd depth -->
+					</li><!-- //main_service_nav -->
+					<li class="bullet"><img src="/static/images/common/gnb_bullet_next_depth.png"></li>
+					<!-- site_nav -->
+					<li class="sitelist"><a href="#" v-on:click.prevent="siteSelectMenu">{{siteSelectMenuList[siteSelectId].text}}</a>
+						<!-- site: 2nd depth -->
+						<div class="wrapper">
+							<transition
+								name="slide"
+								enter-active-class="slideInDown"
+								leave-active-class="slideOutUp"
+							>
+								<select-menu
+									v-if="siteSelectMenuShow"
+									:list="siteSelectMenuList"
+									:select-id="siteSelectId"
+									v-on:selected="onSiteSelected"
+								></select-menu>
+							</transition>
+						</div><!-- //site: 2nd depth -->
+					</li><!-- //site_nav -->
+					<li class="bullet"><img src="/static/images/common/gnb_bullet_next_depth.png"></li>
+					<!-- sub_service_nav -->
+					<li class="sub-service"><a href="#" v-on:click.prevent="onSubNavClicked">{{subServiceList[subServiceSelectId].text}}</a>
+						<!-- sub_service_nav: 2nd depth -->
+						<div class="wrapper">
+							<transition
+								name="slide"
+								enter-active-class="slideInDown"
+								leave-active-class="slideOutUp"
+							>
+								<select-menu
+									v-if="subServiceNavShow"
+									:list="subServiceList"
+									:select-id="subServiceSelectId"
+									v-on:selected="onSubNavSelected"
+								></select-menu>
+							</transition>
+						</div>
+						<!-- <div class="wrapper">
+							<transition
+								name="slide"
+								enter-active-class="slideInDown"
+								leave-active-class="slideOutUp"
+							>
+								<ul class="sub-nav" v-if="subServiceNavShow">
+									<li class="selected"><a href="#" v-on:click.prevent="onSubNavClicked">
+										<span><img src="/static/images/common/gnb_icon_dashboard.png"></span>
+										Dashboard
+									</a></li>
+									<li><a href="#" v-on:click.prevent="onSubNavClicked">
+										<span><img src="/static/images/common/gnb_icon_web_builder.png"></span>
+										Web Builder
+										</a></li>
+									<li><a href="#" v-on:click.prevent="onSubNavClicked">
+										<span><img src="/static/images/common/gnb_icon_report_manager.png"></span>
+										Report Manager
+									</a></li>
+								</ul>
+							</transition>
+						</div> --><!-- //sub_service_nav: 2nd depth -->
+					</li><!-- //sub_service_nav -->
+				</ul>
+				<!-- //gnb -->
+				<!-- topsection -->
+				<ul id="topsection">
+					<li><a href="#">Administrator</a></li>
+					<li><a href="#" class="fa fa-user"></a></li>
+					<li><a href="#" class="fa fa-cog"></a></li>
+				</ul>
+				<!-- //topsection -->
+			</div>
+		</header><!-- //header -->
+		<!-- contents -->
+		<div id="contents">
+			<section>
+				<p><img src="/static/images/service/main_service_icon_big.png"></p>
+				<p>아직 웹사이트를 만들지 않으셨습니다.</p>
+				<p>GCS와 함께 새로운 웹사이트를 만들어 보세요.</p>
+				<p><a href="#" id="new-website-btn">+ 새로운 웹사이트 만들기</a></p>
+			</section>
+		</div>
+		<!-- //contents -->
+	</div><!-- //service_main -->
+	<!-- dark background -->
+	<div id="black"></div><!-- //dark background -->
+	<script data-main="/static/js/main" src="/static/libs/require/require.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+@charset utf-8;
+
+#main #contents {text-align:center;}
+#main #contents p {margin-bottom:20px; font-size:20px; color:#444;}
+#main #contents p:first-child {margin-top:250px; margin-bottom:45px;}
+#main #contents p:last-child {margin-top:90px;}
+#main #contents #new-website-btn {padding:20px 80px; font-size:24px; color:#fff; background:#8480c2; border-radius:20px;

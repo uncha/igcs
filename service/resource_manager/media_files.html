@@ -18,7 +18,7 @@
 	<div id="app">
 		<header id="header">
 			<div class="header_cont">
-				
+
 			</div><!-- header_cont -->
 		</header><!-- header -->
 
@@ -30,10 +30,10 @@
 				<button type="button" @click="createPopup('FileUploadPopup')">파일 업로드 팝업</button>
 				<button type="button" @click="deleteConfirm()">삭제 확인</button>
 				<button type="button" @click="siteSelectMenu()">{{siteSelectMenuList[siteSelectId].text}}</button>
-				
+
 				<div class="select_container">
 					<!-- selectmenu component -->
-					<transition 
+					<transition
 						name="slide"
 						enter-active-class="slideInDown"
 						leave-active-class="slideOutUp"
@@ -46,40 +46,40 @@
 						></select-menu>
 					</transition>
 				</div>
-				
+
 			</div><!-- cont -->
 		</section><!-- contents -->
-		
+
 		<footer id="footer">
 			<div class="footer_cont">
-				
+
 			</div><!-- footer_cont -->
 		</footer><!-- footer -->
 
 		<!-- popup component -->
 		<transition-group class="popup_group" name="fade" tag="div"> <!-- note: transition-group renders an actual element: <span> by default -->
-			<popup 
-				:id="popup.id" 
+			<popup
+				:id="popup.id"
 				:child="popup.child"
 				:data-url="popup.dataUrl"
-				v-on:popup-close="onPopupClose" 
+				v-on:popup-close="onPopupClose"
 				v-for="popup in popupList"
 				v-bind:key="popup"
 			></popup>
 		</transition-group>
-		
+
 		<!-- confirm component -->
 		<transition name="fade" tag="div">
-			<confirm 
+			<confirm
 				v-if="confirmShow"
-				:title="confirmText.title" 
-				:question="confirmText.question" 
+				:title="confirmText.title"
+				:question="confirmText.question"
 				v-on:confirm-complete="onConfirmComplete"
 			></confirm>
 		</transition>
 
 	</div><!-- app -->
-	<script data-main="/static/js/main" src="/static/libs/require/require.js"></script>
+	<script data-main="/static/js/media_files" src="/static/libs/require/require.js"></script>
 </body>
 </html>
 

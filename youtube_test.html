@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="/static/libs/jquery/jquery.min.js"></script>
+	<script type="text/javascript">
+		var part = 'id, snippet';
+		var q = 'ion';
+		var key = 'AIzaSyBi7enymHzXMsqVyxGzmVGBIBwQ7M-WfGY';
+		var url = 'https://www.googleapis.com/youtube/v3/search';
+		var maxResults = 10;
+		var params = 'part=' + part + '&q=' + q + '&key=' + key + '&maxResults=' + maxResults;
+
+		$.ajax({
+			url:url,
+			data:params,
+			success:function(data){
+				console.log(data);
+			}
+		});
+	</script>
+</head>
+<body>
+
+</body>
+</html>

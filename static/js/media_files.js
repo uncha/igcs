@@ -16,6 +16,7 @@ requirejs(['Popup', 'ViewPopup', 'ImageUploadPopup', 'FileUploadPopup', 'BasePop
 	var data = {
 		/* view & upload popup */
 		lastId:0,
+		deletePopupId:undefined,
 		popupList:[/*{id:1, child:'ImagePopup'}*/],
 		/* confirm dialog */
 		confirmShow:false,
@@ -55,16 +56,27 @@ requirejs(['Popup', 'ViewPopup', 'ImageUploadPopup', 'FileUploadPopup', 'BasePop
 				this.confirmShow = true;
 			},
 			onConfirmComplete:function(isConfirm){
-				console.log(isConfirm);
+				console.log('isConfirm = ' + isConfirm);
 				this.confirmShow = false;
+
+				if(this.deletePopupId){
+					if(isConfirm) this.onPopupClose(this.deletePopupId);
+					this.deletePopupId = undefined;
+				}
 			},
 			siteSelectMenu:function(){
 				(this.siteSelectMenuShow) ? this.siteSelectMenuShow = false : this.siteSelectMenuShow = true;
 			},
 			onSelected:function(data, key){
-				console.log(data);
+				console.log('data = ' + data);
 				this.siteSelectId = key;
 				this.siteSelectMenuShow = false;
+			},
+			deleteContentConfirm:function(id){
+				this.deletePopupId = id;
+				this.confirmText.title = '파일삭제';
+				this.confirmText.question = '삭제하시겠습니까?';
+				this.confirmShow = true;
 			}
 		}
 	});
